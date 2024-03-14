@@ -39,7 +39,8 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:BLEDeviceCandidate">
                         <Grid Padding="10">
-                            <Frame Style="{StaticResource CardView}">
+                            <Frame BorderColor="Gray"
+                                    CornerRadius="10">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:DevicePageViewModel}}, 
@@ -47,8 +48,8 @@
                                 CommandParameter="{Binding .}"/>
                                 </Frame.GestureRecognizers>
                                 <VerticalStackLayout Padding="8">
-                                    <Label Style="{StaticResource BaseLabel}" Text="{Binding Name}" />
-                                    <Label Style="{StaticResource MicroLabel}" Text="{Binding Id}" />
+                                    <Label Text="{Binding Name}" />
+                                    <Label Text="{Binding Id}" />
                                 </VerticalStackLayout>
                             </Frame>
                         </Grid>

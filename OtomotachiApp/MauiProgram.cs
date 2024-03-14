@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using OtomotachiApp.Pages.Views;
 using OtomotachiApp.Services;
+using Plugin.LocalNotification;
 
 namespace OtomotachiApp
 {
@@ -14,6 +15,7 @@ namespace OtomotachiApp
 
             builder
                 .UseMauiApp<App>()
+                .UseLocalNotification()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

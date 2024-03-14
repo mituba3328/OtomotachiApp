@@ -35,11 +35,11 @@ public partial class Pen : BaseModel
     }
     private async Task ConnectAsync()
     {
-        //«ó‚¯æ‚Á‚½API‚©‚çƒ†[ƒU[–¼‚ÆƒƒbƒZ[ƒW‚ğ”½‰f‚·‚é«ChatHub‚Åì¬‚µ‚½API‚Æˆê‚Ì–¼‘O
+        //ï¿½ï¿½ï¿½ó‚¯ï¿½ï¿½ï¿½ï¿½APIï¿½ï¿½ï¿½çƒ†ï¿½[ï¿½Uï¿½[ï¿½ï¿½ï¿½Æƒï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ğ”½‰fï¿½ï¿½ï¿½é«ChatHubï¿½Åì¬ï¿½ï¿½ï¿½ï¿½APIï¿½Æˆêï¿½Ì–ï¿½ï¿½O
         hubConnection.On<string>("ReceiveMessage", ( message) =>
         {
-            //ó‚¯æ‚Á‚½ƒƒbƒZ[ƒW‚É‰üs•¶š‚ğ‰Á‚¦‚½‚à‚Ì‚ğ‚Ç‚ñ‚Ç‚ñƒ‰ƒxƒ‹‚É’Ç‰Á‚µ‚Ä‚¢‚­
-            Debug.WriteLine ($"{message}");
+            //ï¿½ó‚¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½É‰ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Ç‚ï¿½Ç‚ñƒ‰ƒxï¿½ï¿½ï¿½É’Ç‰ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
+           // Debug.WriteLine ($"{message}");
             if (message == "onLed")
             {
                 cheerLed = true;

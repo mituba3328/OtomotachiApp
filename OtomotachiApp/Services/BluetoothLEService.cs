@@ -48,7 +48,7 @@ public class BluetoothLEService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Unable to scan nearby Bluetooth LE devices: {ex.Message}.");
+           // Debug.WriteLine($"Unable to scan nearby Bluetooth LE devices: {ex.Message}.");
             await Shell.Current.DisplayAlert($"Unable to scan nearby Bluetooth LE devices", $"{ex.Message}.", "OK");
         }
 
@@ -144,7 +144,7 @@ public class BluetoothLEService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Unable to check Bluetooth LE permissions: {ex.Message}.");
+           // Debug.WriteLine($"Unable to check Bluetooth LE permissions: {ex.Message}.");
             await Shell.Current.DisplayAlert($"Unable to check Bluetooth LE permissions", $"{ex.Message}.", "OK");
         }
         return status;
@@ -159,7 +159,7 @@ public class BluetoothLEService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Unable to request Bluetooth LE permissions: {ex.Message}.");
+           // Debug.WriteLine($"Unable to request Bluetooth LE permissions: {ex.Message}.");
             await Shell.Current.DisplayAlert($"Unable to request Bluetooth LE permissions", $"{ex.Message}.", "OK");
         }
         return status;

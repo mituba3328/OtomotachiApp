@@ -45,7 +45,7 @@
 
         async Task ScanDevicesAsync()
         {
-            Debug.WriteLine($"Bluetooth is missing.");
+            //Debug.WriteLine($"Bluetooth is missing.");
             await Shell.Current.DisplayAlert($"Bluetooth", $"Bluetooth is missing.", "OK");
             if (IsScanning)
             {
@@ -54,7 +54,7 @@
 
             if (!BluetoothLEService.BluetoothLE.IsAvailable)
             {
-                Debug.WriteLine($"Bluetooth is missing.");
+                //Debug.WriteLine($"Bluetooth is missing.");
                 await Shell.Current.DisplayAlert($"Bluetooth", $"Bluetooth is missing.", "OK");
                 return;
             }
@@ -103,7 +103,7 @@
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Unable to get nearby Bluetooth LE devices: {ex.Message}");
+                //Debug.WriteLine($"Unable to get nearby Bluetooth LE devices: {ex.Message}");
                 await Shell.Current.DisplayAlert($"Unable to get nearby Bluetooth LE devices", $"{ex.Message}.", "OK");
             }
             finally
@@ -123,7 +123,7 @@
             {
                 if (!BluetoothLEService.BluetoothLE.IsAvailable)
                 {
-                    Debug.WriteLine($"Error: Bluetooth is missing.");
+                    //Debug.WriteLine($"Error: Bluetooth is missing.");
                     await Shell.Current.DisplayAlert($"Bluetooth", $"Bluetooth is missing.", "OK");
                     return;
                 }
@@ -139,7 +139,7 @@
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Unable to check Bluetooth availability: {ex.Message}");
+                //Debug.WriteLine($"Unable to check Bluetooth availability: {ex.Message}");
                 await Shell.Current.DisplayAlert($"Unable to check Bluetooth availability", $"{ex.Message}.", "OK");
             }
         }

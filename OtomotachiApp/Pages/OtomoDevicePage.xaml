@@ -11,8 +11,7 @@
           ColumnDefinitions="*,*"
           ColumnSpacing="6"
           RowDefinitions="*,Auto"
-          RowSpacing="0"
-          BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
+          RowSpacing="0">
 
         <StackLayout Grid.RowSpan="2"
                      Grid.ColumnSpan="2"
@@ -24,11 +23,9 @@
 
                 <Label Grid.Row="0"
                        Text="{Binding IsUsingText}"
-                       Style="{StaticResource ExtraLargeLabel}"
                        HorizontalOptions="CenterAndExpand"/>
                 <Label Grid.Row="2"
                        Text="{Binding Timestamp,StringFormat='最終接続 {0:H:mm:ss zzz}'}"
-                       Style="{StaticResource MediumLabel}"
                        HorizontalOptions="CenterAndExpand"/>
 
                 <!--<Label Grid.Row="3"
@@ -38,12 +35,10 @@
 
                 <Label Grid.Row="4"
                        Text="Connect to Bluetooth LE device."
-                       Style="{StaticResource LargeLabel}"
                        HorizontalOptions="CenterAndExpand"/>
 
                 <Label Grid.Row="5"
                        Text="Disconnect from Bluetooth LE device."
-                       Style="{StaticResource LargeLabel}"
                        HorizontalOptions="CenterAndExpand"/>
 
             </Grid>
@@ -56,7 +51,6 @@
                 Command="{Binding ConnectToDeviceCandidateAsyncCommand}"
                 IsEnabled="{Binding IsNotBusy}"
                 IsVisible="{Binding IsNotBusy}"
-                Style="{StaticResource ButtonOutline}"
                 Text="Connect" />
 
         <Button x:Name="DisconnectFromButton"
@@ -66,7 +60,6 @@
                 Command="{Binding DisconnectFromDeviceAsyncCommand}"
                 IsEnabled="{Binding IsNotBusy}"
                 IsVisible="{Binding IsNotBusy}"
-                Style="{StaticResource ButtonOutline}"
                 Text="Disconnect" />
 
         <ActivityIndicator x:Name="HeartRatePageActivityIndicator"
