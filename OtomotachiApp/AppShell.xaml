@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="OtomotachiApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OtomotachiApp"
+    xmlns:pages="clr-namespace:OtomotachiApp.Pages"
+    Shell.FlyoutBehavior="Flyout"
+    Title="OtomotachiApp">
+
+
+    <TabBar Title="Titile">
+        <Tab Title="デバイスの追加と選択" Icon="pen.svg">
+            <ShellContent
+            ContentTemplate="{DataTemplate pages:DevicePage}"
+            Route="DevicePage"/>
+        </Tab>
+        <Tab Title="ワークタイムの確認">
+            <ShellContent
+            ContentTemplate="{DataTemplate pages:WorkTimePage}"
+            Route="WorkTimePage"/>
+        </Tab>
+    </TabBar>
+    <FlyoutItem Title="デバイスの追加と選択" 
+            FlyoutIcon="pen.svg">
+        <ShellContent ContentTemplate="{DataTemplate pages:DevicePage}"
+                  Route="DevicePage" >
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem Title="OTOMOデバイスの状態" 
+        FlyoutIcon="pen.svg">
+        <ShellContent ContentTemplate="{DataTemplate pages:OtomoDevicePage}"
+              Route="OtomoDevicePage" >
+        </ShellContent>
+    </FlyoutItem>
+</Shell>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OtomotachiApp.Pages.DevicePage"
+             x:DataType="viewmodel:DevicePageViewModel"
+             xmlns:model="clr-namespace:OtomotachiApp.Models"
+             xmlns:viewmodel="clr-namespace:OtomotachiApp.Pages.Views"
+             Title="{Binding Title}">
+
+    <Grid x:Name="DevicePageGrid"
+      ColumnDefinitions="*,*"
+      ColumnSpacing="6"
+      RowDefinitions="*,Auto"
+      RowSpacing="0">
+        <ScrollView x:Name="DevicePageScrollView"
+            Grid.ColumnSpan="2">
+            <CollectionView x:Name="DevicePageCollectionView"
+                    ItemsSource="{Binding DeviceCandidates}"
+                    SelectionMode="None">
+                <CollectionView.EmptyView>
+                    <StackLayout Grid.RowSpan="2"
+                         Grid.ColumnSpan="2">
+                        <Grid RowDefinitions="*,*"
+                      RowSpacing="8"
+                      HorizontalOptions="CenterAndExpand"
+                      VerticalOptions="CenterAndExpand">
+                            <Label Grid.Row="0"
+                           Text="Scan for nearby Bluetooth LE devices."
+                           HorizontalOptions="CenterAndExpand"/>
+                            <Label Grid.Row="1"
+                           Text="Check Bluetooth."
+                           HorizontalOptions="CenterAndExpand"/>
+                        </Grid>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout  Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:BLEDeviceCandidate">
+                        <Grid Padding="10">
+                            <Frame Style="{StaticResource CardView}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:DevicePageViewModel}}, 
+                                          Path=GoToHeartRatePageAsyncCommand}"
+                                CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <VerticalStackLayout Padding="8">
+                                    <Label Style="{StaticResource BaseLabel}" Text="{Binding Name}" />
+                                    <Label Style="{StaticResource MicroLabel}" Text="{Binding Id}" />
+                                </VerticalStackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <Button x:Name="ScanDevicesButton"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="8"
+                Command="{Binding ScanNearbyDevicesAsyncCommand}"
+                IsEnabled="{Binding IsNotScanning}"
+                IsVisible="{Binding IsNotScanning}"
+                Text="Scan nearby devices" />
+        <Button x:Name="CheckBluetoothButton"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="8"
+                Command="{Binding CheckBluetoothAvailabilityAsyncCommand}"
+                Text="Check Bluetooth" />
+        <ActivityIndicator x:Name="HomePageActivityIndicator"
+                   Grid.ColumnSpan="2"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="StartAndExpand" />
+    </Grid>
+</ContentPage>
