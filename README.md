@@ -9,3 +9,5 @@
 -  SignalRClient WebsocketClient
 -  esp32 esp32マイコン上で実行するプログラム
 -  old 県大会までのプログラム
+
+ハッカソン当日の開発状況のまま
